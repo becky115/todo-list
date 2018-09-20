@@ -4,14 +4,20 @@ import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
 
+const initailTodos = new Array(500).fill(0).map(
+	(foo, index) => ({id: index, text:`일정${index}`, done: false})
+);
+
+
 class App extends Component {
 	state = {
 		input: '', //input값
 		//일정 데이터 초깃값
-		todos: [
-			{id:0, text: 'react study', done: true},
-			{id:1, text: 'exercise', done: false}
-		]
+		// todos: [
+		// 	{id:0, text: 'react study', done: true},
+		// 	{id:1, text: 'exercise', done: false}
+		// ]
+		todos: initailTodos
 	};
 
 	//일정 데이터 안에 들어가는 id값

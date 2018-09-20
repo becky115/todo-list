@@ -6,6 +6,12 @@ const cx = classNames.bind(styles);
 
 
 class TodoItem extends Component {
+
+	shouldComponentUpdate(nextProps, nextState) {
+		console.log(this.props.done !== nextProps.done)
+		return this.props.done !== nextProps.done;
+	}
+
 	render() {
 		const {done, children, onToggle, onRemove} = this.props;
 
