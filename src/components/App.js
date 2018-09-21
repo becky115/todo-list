@@ -47,6 +47,7 @@ class App extends Component {
 			todos: [...todos, newTodo]
 		})
 	};
+
 	//to do 아이템 토글하기
 	handleToggle = (id) => {
 		console.log("handleToggle")
