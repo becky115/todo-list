@@ -12,6 +12,7 @@ const cx = classNames.bind(styles);
  */
 const TodoInput = ({value, onChange, onInsert}) => {
 	//Enter키가 눌리면 onInsert를 실행합니다.
+	console.log(value, onChange, onInsert);
 	const handleKeyPress = (e) => {
 		if(e.key === 'Enter') {
 			onInsert();

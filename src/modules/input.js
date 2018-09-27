@@ -15,6 +15,7 @@ const initialState = Map({
 //리듀서 만들기
 export default handleActions({
 	[SET_INPUT]: (state, action) => {
+		console.log(state, action)
 		return state.set('value', action.payload)
 	}
 }, initialState);

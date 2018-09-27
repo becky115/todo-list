@@ -52,4 +52,4 @@ export default handleActions({
 		const {payload: index} = action;
 		return state.delete(index);
 	}
-});
+}, initialState);

@@ -1,16 +1,44 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import TodoList from '../components/TodoList';
+
+import { connect } from 'react-redux';
+import { bindActionCreators} from 'redux';
+
+import * as todosActions from '../modules/todos';
+
 
 class TodoListContainer extends Component {
+
+	handleToggle = (id) => {
+		const { TodosActions } = this.props;
+		TodosActions.toggle(id);
+	}
+
+	handleRemove = (id) => {
+		console.log(this.props)
+		const { TodosActions } = this.props;
+		TodosActions.remove(id);
+	}
+
 	render() {
+		const { todos } = this.props;
+		const { handleToggle, handleRemove } = this;
+
 		return (
-			<div>
-				
-			</div>
+			<TodoList
+				todos={todos}
+				onToggle={handleToggle}
+				onRemove={handleRemove}
+			/>
 		);
 	}
 }
 
-TodoListContainer.propTypes = {};
-
-export default TodoListContainer;
+export default connect(
+	(state) => ({
+		todos: state.todos
+	}),
+	(dispatch) => ({
+		TodosActions: bindActionCreators(todosActions, dispatch)
+	})
+)(TodoListContainer)
